@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ficha;
+use App\Programa;
 use Illuminate\Http\Request;
 
 /**
@@ -73,8 +74,9 @@ class FichaController extends Controller
     public function edit($id)
     {
         $ficha = Ficha::find($id);
-
-        return view('ficha.edit', compact('ficha'));
+        $programa = Programa::get();
+        $programasArray = $programa->pluck('area', 'id')->all();
+        return view('ficha.edit', compact('ficha', 'programasArray'));
     }
 
     /**

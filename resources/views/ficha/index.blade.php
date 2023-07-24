@@ -35,13 +35,13 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Ficha Numero</th>
 										<th>Duracion</th>
 										<th>Modalidad</th>
 										<th>Fecha Inicio</th>
 										<th>Fecha Fin</th>
-										<th>Programa Id</th>
+										<th>Programa</th>
 
                                         <th></th>
                                     </tr>
@@ -50,7 +50,7 @@
                                     @foreach ($fichas as $ficha)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $ficha->ficha_numero }}</td>
 											<td>{{ $ficha->duracion }}</td>
 											<td>{{ $ficha->modalidad }}</td>
@@ -61,7 +61,7 @@
                                             <td>
                                                 <form action="{{ route('fichas.destroy',$ficha->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('fichas.show',$ficha->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('fichas.edit',$ficha->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('fichas.edit',$ficha->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>

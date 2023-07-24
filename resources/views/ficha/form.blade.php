@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('ficha_numero') }}
             {{ Form::text('ficha_numero', $ficha->ficha_numero, ['class' => 'form-control' . ($errors->has('ficha_numero') ? ' is-invalid' : ''), 'placeholder' => 'Ficha Numero']) }}
@@ -27,13 +27,13 @@
             {!! $errors->first('fecha_fin', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('programa_id') }}
-            {{ Form::text('programa_id', $ficha->programa_id, ['class' => 'form-control' . ($errors->has('programa_id') ? ' is-invalid' : ''), 'placeholder' => 'Programa Id']) }}
-            {!! $errors->first('programa_id', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::select('programa_id', $programasArray, $ficha->programa_id, ['class' => 'form-control' . ($errors->has('programa_id') ? ' is-invalid' : '')]) }}
         </div>
+    </div>
 
-    </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
-    </div>
+</div>
+<br>
+<div class="box-footer mt20">
+    <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+</div>
 </div>
